@@ -1,6 +1,7 @@
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
+from sklearn import metrics
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -72,3 +73,24 @@ test_prediction = log_reg.predict(X_test)
 
 print(training_prediction)
 print(test_prediction)
+
+
+#Performance in Training
+print("Precision, Recall, Confusion matrix, in training\n")
+
+#Precision Recall Scores
+print(metrics.classification_report(Y_train, training_prediction, digits = 3))
+
+#Confusion Matrix
+print(metrics.confusion_matrix(Y_train, training_prediction))
+
+
+
+#Performance in Training
+print("Precision, Recall, Confusion Matrix, in testing\n ")
+
+#Precision Recall Scores
+print(metrics.classification_report(Y_test, training_prediction, digits = 3))
+
+#Confusion Matrix
+print(metrics.confusion_matrix(Y_test, test_prediction))
